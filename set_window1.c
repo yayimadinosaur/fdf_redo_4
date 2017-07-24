@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 19:44:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/21 19:38:03 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/23 18:54:48 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ t_env	*set_window1(int n, t_fdfstore *store)
 		ft_putstr("window size needs to be positive\n");
 	if (n == 0)
 		ft_putstr("window size needs to be > 0\n");
-	e->win_x = n;
-	e->win_y = n;
+	e->win_size_x = n;
+	e->win_size_y = n;
 	e->center_x = n / 2;
 	e->center_y = n / 2;
 	e->start_x = 0;
@@ -68,6 +68,6 @@ t_env	*set_window1(int n, t_fdfstore *store)
 	e->max_x = e->start_x + e->gap1 * (store->col - 1);
 	e->max_y = e->start_y + e->gap1 * (store->row - 1);
 //	e->mlx = mlx_init();
-//	e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "42");
+//	e->win = mlx_new_window(e->mlx, e->win_size_x, e->win_size_y, "42");
 	return (e);
 }

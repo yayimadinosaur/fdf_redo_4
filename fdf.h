@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/22 16:47:20 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/23 19:02:30 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,7 @@
 
 typedef	struct			s_fdfstore
 {
-	char				*store;	//notsure what this is 4
-//	char				**store_split;	//NOT NEEDED 
 	int					**array_int;	//add pts struct?
-	int					rot_x;
-	int					rot_y;
-	int					rot_z;
-	int					shift_x;
-	int					shift_y;
-	int					shift_z;
 	int					row;
 	int					col;
 }						t_fdfstore;
@@ -59,13 +51,13 @@ typedef struct			s_env
 {
 	void				*mlx;
 	void				*win;
-	int					win_x;
-	int					win_y;
-	float				center_x;
-	float				center_y;
-	int					start_x;
-	int					start_y;
-	float				end_x;
+	int					win_size_x;	//win
+	int					win_size_y;	//win
+	float				win_mid_x;	//win
+	float				win_mid_y;	//win
+	int					start_x;	//grid
+	int					start_y;	//grid
+	float				end_x;		//
 	float				end_y;
 	float				h_gap;
 	float				w_gap;
@@ -78,15 +70,10 @@ typedef struct			s_env
 int			parse_fdf(char *str, char **av, t_fdfstore *store);
 
 t_fdfstore	*create_struct1(void);
-t_fdfstore	*create_struct(char **av);	//old
 int			save_values(char **av, t_fdfstore *store);
 void		array_int(char **result_str, int n, int *array);
 
-t_env		*set_window(int n, t_fdfstore *store);	//old, testing 1
-
 t_env		*set_window1(int n, t_fdfstore *store);
-void		draw(void *mlx, void *win, t_env *e, t_fdfstore *store);
-void		draw1(void *mlx, void *win, t_env *e, t_fdfstore *store);
 void		draw2(void *mlx, void *win, t_env *e, t_fdfstore *store);
 
 void		rotate(t_fdfstore *store, t_env *e);

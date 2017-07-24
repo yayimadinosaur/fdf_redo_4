@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 13:29:37 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/22 17:04:12 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/23 18:57:34 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		main(int ac, char **av)
 				return (-1);	//notsure if proper return 
 			e->mlx = mlx_init();
 			e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "42");
-			printf("win_x %i win_y %i cent_x %f cent_y %f start_x %i start_y %i end_x %f end_y %f h_gap %f w_gap %f gap1 %f\n", e->win_x, e->win_y, e->center_x, e->center_y, e->start_x, e->start_y, e->end_x, e->end_y, e->h_gap, e->w_gap, e->gap1);
+			printf("win_x %i win_y %i cent_x %f cent_y %f start_x %i start_y %i end_x %f end_y %f h_gap %f w_gap %f gap1 %f\n", e->win_size_x, e->win_size_y, e->win_mid_x, e->win_mid_y, e->start_x, e->start_y, e->end_x, e->end_y, e->h_gap, e->w_gap, e->gap1);
 			printf("mlx looping\n");
 			//rotate(store, e);
 			translate(store, e);
