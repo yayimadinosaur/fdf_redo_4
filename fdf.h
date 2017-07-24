@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/23 19:02:30 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/24 13:21:35 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct			s_pts
 	float					x;
 	float					y;
 	float					z;
-	float					x_stop;
-	float					y_stop;
+	float					x_stop;	//x pixel stop
+	float					y_stop;	//y pixel stop
 }						t_pts;	//malloc for (**t_pts) row * col
 
 typedef struct			s_env
@@ -57,12 +57,12 @@ typedef struct			s_env
 	float				win_mid_y;	//win
 	int					start_x;	//grid
 	int					start_y;	//grid
-	float				end_x;		//
-	float				end_y;
+	float				end_x;		//grid limit
+	float				end_y;		//grid limit
 	float				h_gap;
 	float				w_gap;
 	float				gap1;
-	float				max_x;
+	float				max_x;		
 	float				max_y;
 	t_pts				**pts;
 }						t_env;

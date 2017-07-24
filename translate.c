@@ -6,13 +6,13 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/22 16:21:25 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/23 19:01:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/24 13:18:36 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static cmp_mid(t_env *e, char c, float coor)
+static float cmp_mid(t_env *e, char c, float coor)
 {
 	float	grid_mid_x;
 	float	grid_y_mid;

@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 19:44:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/23 18:54:48 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/24 13:16:01 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ t_env	*set_window1(int n, t_fdfstore *store)
 		ft_putstr("window size needs to be > 0\n");
 	e->win_size_x = n;
 	e->win_size_y = n;
-	e->center_x = n / 2;
-	e->center_y = n / 2;
+	e->win_mid_x = n / 2;
+	e->win_mid_y = n / 2;
 	e->start_x = 0;
 	e->start_y = 0;
 	e->end_x = n - (2 * (n / 10));
