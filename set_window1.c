@@ -6,14 +6,39 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 19:44:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/24 13:16:01 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/25 17:56:12 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 //removing the 10% and starting at 0,0
 //ending at end - 20%
-t_pts	**ft_setpts1(t_fdfstore *store, t_env *e)
+
+static void		set_slope(t_fdfstore *store, t_env *e)
+{
+	int		i;
+	int		j;
+	float	tmp_x;
+	float	tmp_y;
+	float	tmp;
+
+	i = 0;
+	while (i < store->row)
+	{
+		j = 0;
+		while (j < store->col)
+		{
+			while (j + 1 < store->col)
+			{
+				if (e->pts[i][j + 1].x_stop >= e->pts[i][j].x_stop)
+
+			j++;
+		}
+		i++;
+	}
+}
+
+static t_pts	**ft_setpts1(t_fdfstore *store, t_env *e)
 {
 	t_pts	**pts;
 	int		i;
@@ -43,7 +68,7 @@ t_pts	**ft_setpts1(t_fdfstore *store, t_env *e)
 	return (pts);
 }
 
-t_env	*set_window1(int n, t_fdfstore *store)
+t_env			*set_window1(int n, t_fdfstore *store)
 {
 	t_env	*e;
 
