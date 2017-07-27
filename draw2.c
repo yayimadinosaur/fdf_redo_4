@@ -6,12 +6,12 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:12:21 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/25 17:25:10 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/26 17:32:41 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
+/*
 void		draw_straight(void *mlx, void *win, t_env *e, t_fdfstore *store)
 {
 	int		i;
@@ -30,6 +30,7 @@ void		draw_straight(void *mlx, void *win, t_env *e, t_fdfstore *store)
 		i++;
 	}
 }
+*/
 void		draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
 {
 	int		i;
@@ -43,10 +44,10 @@ void		draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
 		while (j < store->col)
 		{
 			gap = 0;
-			while (gap <= e->gap1 && e->pts[i][j].x_stop + gap <= e->max_x)
+			while (gap <= e->gap1 && e->pts[i][j].x + gap <= e->pts[i][j].x_stop)
 			{
-				mlx_pixel_put(mlx, win, e->pts[i][j].x_stop + gap,\
-					   	e->pts[i][j].y_stop, 0xff00);	//green
+				mlx_pixel_put(mlx, win, e->pts[i][j].x + gap,\
+					   	e->pts[i][j].y, 0xff00);	//green
 				gap++;
 			}
 			printf("i %i j %i gap %f\n", i, j, gap);
@@ -54,7 +55,7 @@ void		draw_right(void *mlx, void *win, t_env *e, t_fdfstore *store)	//right
 		}
 		i++;
 	}
-	printf("x stop %f\n", e->pts[i -1][j - 1].x_stop);
+	printf("x stop %f\n", e->pts[i -1][j - 1].x);
 }
 
 void		draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
@@ -70,10 +71,10 @@ void		draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
 		while (j < store->col)
 		{
 			gap = 0;
-			while (gap <= e->gap1 && e->pts[i][j].y_stop + gap <= e->max_y + 1)
+			while (gap <= e->gap1 && e->pts[i][j].y + gap <= e->pts[i][j].y_stop)
 			{
-				mlx_pixel_put(mlx, win, e->pts[i][j].x_stop,\
-						e->pts[i][j].y_stop + gap, 0xff0000);	//red
+				mlx_pixel_put(mlx, win, e->pts[i][j].x,\
+						e->pts[i][j].y + gap, 0xff0000);	//red
 				gap++;
 			}
 	//		printf("i %i j %i gap %f\n", i, j, gap);
@@ -81,7 +82,7 @@ void		draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
 		}
 		i++;
 	}
-	printf("y stop %f\n", e->pts[i - 1][j - 1].y_stop);
+	printf("y stop %f\n", e->pts[i - 1][j - 1].y);
 }
 void		draw2(void *mlx, void *win, t_env *e, t_fdfstore *store)
 {

@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 19:44:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/25 17:56:12 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/26 17:38:26 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,20 @@
 //removing the 10% and starting at 0,0
 //ending at end - 20%
 
+/*
 static void		set_slope(t_fdfstore *store, t_env *e)
 {
 	int		i;
 	int		j;
-	float	tmp_x;
-	float	tmp_y;
-	float	tmp;
 
 	i = 0;
 	while (i < store->row)
 	{
 		j = 0;
-		while (j < store->col)
-		{
-			while (j + 1 < store->col)
-			{
-				if (e->pts[i][j + 1].x_stop >= e->pts[i][j].x_stop)
-
-			j++;
-		}
-		i++;
+		while ()
 	}
 }
+*/
 
 static t_pts	**ft_setpts1(t_fdfstore *store, t_env *e)
 {
@@ -54,17 +45,23 @@ static t_pts	**ft_setpts1(t_fdfstore *store, t_env *e)
 				return (NULL);
 		while (j < store->col)
 		{
-			pts[i][j].x = i;
-			pts[i][j].y = j;
+		//	pts[i][j].x = i;
+		//	pts[i][j].y = j;
+			pts[i][j].x = e->gap1 * j;
+			pts[i][j].y = e->gap1 * i;
 			pts[i][j].z = store->array_int[i][j];
-			pts[i][j].x_stop = (e->gap1 * j);	//remember to flip x + y accordingly
-			pts[i][j].y_stop = (e->gap1 * i);
-			printf("[i=%i][j=%i]pts[x=%f][y=%f][z=%f][x_stop=%f][y_stop=%f]\n", i, j, pts[i][j].x, pts[i][j].y, pts[i][j].z, pts[i][j].x_stop, pts[i][j].y_stop);
+		//	pts[i][j].x_stop = (e->gap1 * j);	//remember to flip x + y accordingly
+		//	pts[i][j].y_stop = (e->gap1 * i);
+			pts[i][j].x_stop = e->gap1 * (j + 1);	//remember to flip x + y accordingly
+			pts[i][j].y_stop = e->gap1 * (i + 1);
+		//	pts[i][j].slope = e->pts[i][j].y_stop / e->pts[i][j].x_stop;
+			printf("i%ij%i]pts[x=%f][y=%f][z=%f][x_stop=%f][y_stop=%f]\n", i, j, pts[i][j].x, pts[i][j].y, pts[i][j].z, pts[i][j].x_stop, pts[i][j].y_stop),//, pts[i][j].slope);
 			j++;
 		}
 		printf("\n");
 		i++;
 	}
+	printf("setpts1 done i%ij%i\n", i, j);
 	return (pts);
 }
 
@@ -90,8 +87,8 @@ t_env			*set_window1(int n, t_fdfstore *store)
 	e->w_gap = (e->end_x - e->start_x) / (store->col - 1);
 	e->gap1 = (e->h_gap >= e->w_gap ? e->w_gap : e->h_gap);
 	e->pts = ft_setpts1(store, e);
-	e->max_x = e->start_x + e->gap1 * (store->col - 1);
-	e->max_y = e->start_y + e->gap1 * (store->row - 1);
+	e->max_x = e->gap1 * (store->col);
+	e->max_y = e->gap1 * (store->row);
 //	e->mlx = mlx_init();
 //	e->win = mlx_new_window(e->mlx, e->win_size_x, e->win_size_y, "42");
 	return (e);
