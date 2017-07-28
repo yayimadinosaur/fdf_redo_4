@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:12:21 by wfung             #+#    #+#             */
-/*   Updated: 2017/07/26 17:32:41 by wfung            ###   ########.fr       */
+/*   Updated: 2017/07/27 17:17:04 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void		draw_down(void *mlx, void *win, t_env *e, t_fdfstore *store)	//down
 }
 void		draw2(void *mlx, void *win, t_env *e, t_fdfstore *store)
 {
-	printf("draw left chk %f\n", e->max_y);
-	printf("draw right chk %f\n", e->max_x);
+	printf("draw2chk max y %f\n", e->max_y);
+	printf("draw2chk max x %f\n", e->max_x);
 	draw_right(mlx, win, e, store);	//straight line
 	draw_down(mlx, win, e, store);	//straight line
 
